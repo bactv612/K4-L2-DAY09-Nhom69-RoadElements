@@ -26,7 +26,7 @@ Theo guideline, CVAT mặc định `visibility=visible`, `truncated=false`, `fac
 
 ## CVAT
 
-- **Phiên bản CVAT:** Đã kiểm tra trước calibration; số phiên bản cụ thể không được lưu trong báo cáo.
+- **Phiên bản CVAT:** `v2.74.1` theo image tag trong `D:\VinUni\cvat\cvat-day2\docker-compose.yml`.
 - **Tên task và ID calibration:** Đã tạo task calibration; tên và ID cụ thể không được lưu trong báo cáo.
 - **Đã dán Guide vào task:** Đã dán toàn bộ `02_guideline.md` vào Guide của task.
 - **Shape hay Track:** Đã chọn Shape vì task dùng ảnh tĩnh, không có nhãn theo thời gian.
