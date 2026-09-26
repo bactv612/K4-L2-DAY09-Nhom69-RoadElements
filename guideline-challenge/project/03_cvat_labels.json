@@ -1,1 +1,85 @@
-[]
+[
+  {
+    "name": "traffic_sign",
+    "color": "#1565C0",
+    "type": "rectangle",
+    "attributes": [
+      {
+        "name": "visibility",
+        "mutable": false,
+        "input_type": "select",
+        "default_value": "visible",
+        "values": ["visible", "blurry"]
+      },
+      {
+        "name": "truncated",
+        "mutable": false,
+        "input_type": "select",
+        "default_value": "false",
+        "values": ["false", "true"]
+      },
+      {
+        "name": "facing",
+        "mutable": false,
+        "input_type": "select",
+        "default_value": "relevant",
+        "values": ["relevant", "irrelevant"]
+      },
+      {
+        "name": "needs_review",
+        "mutable": false,
+        "input_type": "checkbox",
+        "default_value": "false",
+        "values": ["false"]
+      }
+    ]
+  },
+  {
+    "name": "review_candidate",
+    "color": "#EF6C00",
+    "type": "rectangle",
+    "attributes": [
+      {
+        "name": "decision",
+        "mutable": false,
+        "input_type": "select",
+        "default_value": "__undefined__",
+        "values": ["__undefined__", "IGNORE", "UNKNOWN", "ESCALATE"]
+      },
+      {
+        "name": "reason",
+        "mutable": false,
+        "input_type": "select",
+        "default_value": "__undefined__",
+        "values": ["__undefined__", "out_of_scope", "too_small", "not_sure_sign", "image_quality", "ego_route_unclear", "other"]
+      }
+    ]
+  },
+  {
+    "name": "image_status",
+    "color": "#2E7D32",
+    "type": "tag",
+    "attributes": [
+      {
+        "name": "weather",
+        "mutable": false,
+        "input_type": "select",
+        "default_value": "sunny",
+        "values": ["sunny", "cloudy", "rainy", "snowy", "other"]
+      },
+      {
+        "name": "brightness",
+        "mutable": false,
+        "input_type": "select",
+        "default_value": "day",
+        "values": ["day", "night"]
+      }
+    ]
+  },
+  {
+    "name": "image_escalate",
+    "color": "#8E24AA",
+    "type": "tag",
+    "attributes": []
+  }
+]

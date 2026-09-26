@@ -1,1 +1,5 @@
 sample_id,split,tags,reason
+GTS01,example,normal,Một biển tròn viền đỏ rõ nét; kiểm tra box ôm mặt biển.
+GTS04,example,edge,Hai biển riêng trên cùng cột; kiểm tra một box cho mỗi mặt biển.
+GTS07,example,small_far,Biển ở xa dưới ngưỡng kích thước; kiểm tra quyết định không tạo box nhưng vẫn tạo image_status.
+GTS12,example,ambiguity;low_visibility,Object mờ hoặc lóa cần escalation; nhóm cần chốt vị trí cụ thể trong ảnh.

@@ -5,8 +5,8 @@
 - **Team:** TODO (ví dụ `team07`)
 - **Nhóm peer test bài của mình:** TODO (cặp A ↔ B; số nhóm lẻ thì ring 3 nhóm A → B → C → A — Lab Coach công bố)
 - **Nhóm mình test bài của:** TODO
-- **Problem family:** TODO (xem README mục "1 · Chọn bài toán")
-- **Nguồn ảnh:** TODO (`bdd100k`, `gtsdb`, `lisa` — chỉ dùng ảnh trong `data/`)
+- **Problem family:** Phát hiện biển báo giao thông cố định, tập trung vào biển nhỏ, xa hoặc bị che (xem README mục "1 · Chọn bài toán")
+- **Nguồn ảnh:** `gtsdb` cho sample pack hiện tại (`bdd100k`, `gtsdb`, `lisa` — chỉ dùng ảnh trong `data/`)
 
 | Thành viên | GitHub | Vai trò chính | File phụ trách |
 |---|---|---|---|
