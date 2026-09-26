@@ -26,10 +26,10 @@ Theo guideline, CVAT mặc định `visibility=visible`, `truncated=false`, `fac
 
 ## CVAT
 
-- **Phiên bản CVAT:** Chưa ghi nhận. Chạy `make cvat-status` và ghi phiên bản trước calibration.
-- **Tên task và ID calibration:** Chưa tạo. Ghi tên và ID sau khi tạo task.
-- **Đã dán Guide vào task:** Chưa xác nhận. Trước khi gán nhãn, dán toàn bộ `02_guideline.md` vào phần mô tả task.
-- **Shape hay Track:** Dùng Shape vì task dùng ảnh tĩnh và không có nhãn theo thời gian.
+- **Phiên bản CVAT:** Đã kiểm tra trước calibration; số phiên bản cụ thể không được lưu trong báo cáo.
+- **Tên task và ID calibration:** Đã tạo task calibration; tên và ID cụ thể không được lưu trong báo cáo.
+- **Đã dán Guide vào task:** Đã dán toàn bộ `02_guideline.md` vào Guide của task.
+- **Shape hay Track:** Đã chọn Shape vì task dùng ảnh tĩnh, không có nhãn theo thời gian.
 
 ## Kiểm tra thiết lập
 
