@@ -1,1 +1,11 @@
 sample_id,decision_id,expected,severity,rationale
+GTS02,d1,"label=traffic_sign x2 (hai biển yield ở góc trên hai bên giao lộ)",critical,Bỏ sót biển nhường đường có thể làm sai cảnh báo ưu tiên tại giao lộ.
+GTS02,d2,"label=traffic_sign x2 (hai biển mũi tên rẽ màu xanh bên dưới biển yield); ignore=traffic_light",major,Label riêng từng mặt biển chỉ hướng và không nhầm cụm đèn tín hiệu thành biển.
+GTS08,d1,"label=traffic_sign cho các mặt biển giao thông nhận diện được ở hai bên đường; mỗi mặt biển là một instance",critical,Ảnh tối dưới cầu có biển quy định ở xa; không bỏ sót biển nhận diện được hoặc gán nhầm cấu trúc cầu.
+GTS08,d2,"geometry: box ôm phần mặt biển nhìn thấy; không bao cột, cầu hoặc nền",minor,Kiểm tra box tight trên các biển ở vùng thiếu sáng.
+GTS14,d1,"label=traffic_sign cho biển cảnh báo giao lộ hình tam giác bên phải; ignore=traffic_light",critical,Biển cảnh báo giao lộ có ý nghĩa an toàn; đèn tín hiệu nằm ngoài scope.
+GTS14,d2,"geometry: box ôm mặt biển tam giác nhìn thấy; không bao cột",minor,Đánh giá geometry độc lập với cụm đèn tín hiệu gần đó.
+GTS18,d1,"label=traffic_sign x2 (biển cảnh báo tam giác và biển giới hạn tốc độ 30 bên dưới)",major,Hai mặt biển gắn cùng cột vẫn là hai instance độc lập.
+GTS18,d2,"geometry: hai box riêng ôm mặt tam giác và mặt tròn; không bao cột",minor,Không gộp hai mặt biển hoặc gộp với giá đỡ.
+GTS25,d1,"label=traffic_sign x2 (biển ưu tiên hình thoi và biển giới hạn tốc độ 50 bên dưới)",major,Hai biển quy định riêng biệt cùng được nhìn thấy trên một cột.
+GTS25,d2,"geometry: hai box riêng ôm mặt hình thoi và mặt tròn; không bao cột",minor,Box theo mép ngoài phần mặt biển nhìn thấy.
