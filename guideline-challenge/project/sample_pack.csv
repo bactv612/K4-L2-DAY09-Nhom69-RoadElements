@@ -3,3 +3,8 @@ GTS01,example,normal,Một biển tròn viền đỏ rõ nét; kiểm tra box ô
 GTS04,example,edge,Hai biển riêng trên cùng cột; kiểm tra một box cho mỗi mặt biển.
 GTS07,example,small_far,Biển ở xa dưới ngưỡng kích thước; kiểm tra quyết định không tạo box nhưng vẫn tạo image_status.
 GTS12,example,ambiguity;low_visibility,Object mờ hoặc lóa cần escalation; nhóm cần chốt vị trí cụ thể trong ảnh.
+GTS02,blind,edge;conflict,Giao lộ có nhiều biển và đèn giao thông; phân biệt biển thuộc scope và các hướng rẽ.
+GTS08,blind,low_visibility;small_far,Ảnh dưới cầu thiếu sáng với biển ở xa; kiểm tra khả năng nhận diện và ngưỡng 8 px.
+GTS14,blind,edge,Giao lộ có đèn giao thông và biển cảnh báo; kiểm tra scope và box riêng cho biển.
+GTS18,blind,edge,Hai biển xếp dọc trên cùng cột; kiểm tra tách từng mặt biển theo quy tắc instance.
+GTS25,blind,normal,Cảnh đường thoáng với biển rõ; làm mẫu chuẩn cho geometry và attributes.
