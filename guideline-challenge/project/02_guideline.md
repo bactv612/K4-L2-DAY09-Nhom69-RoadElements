@@ -1,6 +1,6 @@
 # Guideline gán nhãn vị trí biển báo giao thông cố định
 
-**Version:** v2
+**Version:** v3 — cập nhật sau blind test; blind-pack đã gửi dùng v2.
 
 ## 1. Mục tiêu và phạm vi
 
@@ -9,6 +9,8 @@ Phát hiện vị trí của từng biển báo giao thông cố định nhìn t
 Gán nhãn biển cấm, biển hiệu lệnh, biển cảnh báo và biển chỉ dẫn đặt cố định bên đường. Biển không cần quay mặt về phía xe mới được gán nhãn. Bỏ qua đèn giao thông, vạch kẻ đường, biển quảng cáo, bảng chỉ có tên đường, biển gắn trên xe hoặc rơ-moóc, mặt sau trơn của biển và ảnh phản chiếu.
 
 Ảnh GTSDB có biển của Đức. Không bỏ qua biển chỉ dẫn vì chữ lạ hoặc không đọc được. Hãy dựa vào hình dạng và ngữ cảnh để xác định đó có phải biển giao thông không. Nếu bằng chứng chưa đủ, làm theo mục 7.
+
+Đèn tín hiệu vẫn ngoài scope khi ở xa hoặc nằm cạnh biển báo. Không dùng `facing=irrelevant` để giữ một đèn tín hiệu dưới nhãn `traffic_sign`: thuộc tính này chỉ dành cho biển báo hợp lệ quay về hướng khác. Nếu không xác định được vật nhỏ là biển hay đèn, dùng `review_candidate` với `decision=UNKNOWN` và ghi vị trí để owner xem lại.
 
 ## 2. Đơn vị gán nhãn
 
@@ -23,6 +25,8 @@ Dùng rectangle ôm phần mặt biển nhìn thấy. Không đoán phần bị 
 Dùng thuộc tính `occluded` có sẵn của CVAT để ghi nhận vật khác che một phần biển. Không tạo thêm attribute `occluded`. Vẫn gán nhãn biển bị che nếu phần còn thấy đủ để nhận ra đó là biển.
 
 Cạnh dài nhất của mặt biển phải từ 8 px trở lên. Bỏ qua biển nhỏ hơn 8 px. Với biển từ 8 px trở lên, gán nhãn nếu vẫn nhận ra đó là biển. Mỗi cạnh của box được lệch tối đa 2 px so với mép ngoài nhìn thấy.
+
+Trước khi hoàn tất box, phóng ảnh gốc và kiểm từng cạnh với mép mặt biển. Nếu một cạnh ăn vào nền quá 2 px hoặc cắt mất mặt biển quá 2 px, chỉnh lại box; đặc biệt kiểm các biển tam giác nhỏ cạnh đèn tín hiệu.
 
 ## 4. Taxonomy
 
@@ -40,6 +44,8 @@ Dùng một class `traffic_sign` cho mọi biển thuộc phạm vi. Không tạ
 | `reason` | Attribute của `review_candidate` | `out_of_scope`, `too_small`, `not_sure_sign`, `image_quality`, `ego_route_unclear`, `other` | `__undefined__` | Ghi lý do cần rà soát hoặc bỏ qua. |
 
 CVAT gán mặc định `visible`, `false`, `relevant`, `sunny` và `day`. Kiểm tra các mặc định và đổi giá trị khi ảnh cho thấy điều khác. Mỗi ảnh có đúng một tag `image_status` với thông tin thời tiết và điều kiện sáng. Tag này cũng cho biết ảnh đã được rà soát. Nếu không có biển thuộc phạm vi thì không có rectangle `traffic_sign`. Thuộc tính che khuất dùng cờ có sẵn trong CVAT, không khai báo lại trong JSON. Chỉ dùng label `review_candidate` cho case cần chấm hoặc chưa giải quyết. Không đưa label này vào dữ liệu huấn luyện detector.
+
+Trước khi export, đi qua từng ảnh trong task và đếm tag `image_status`: phải có đúng một tag ở cả ảnh có biển lẫn ảnh không có biển. Nếu export XML thiếu tag ở bất kỳ ảnh nào, bổ sung trong CVAT rồi export lại.
 
 ## 5. Trường hợp cần và không cần gán nhãn
 
@@ -68,13 +74,15 @@ Nếu ảnh không có biển thuộc phạm vi, không vẽ `traffic_sign` như
 
 Không dùng `IGNORE` để thay cho "không biết". Dùng `UNKNOWN` hoặc `ESCALATE` khi thiếu bằng chứng. Owner phân xử case escalation dựa trên ảnh. Nếu ảnh vẫn không đủ căn cứ, giữ case ở trạng thái escalation và ghi câu hỏi chưa giải quyết.
 
+Mỗi object có `needs_review=true` phải có sample ID, vị trí và câu hỏi trong log review. Owner ghi quyết định xử lý vào log; cờ review không thay thế quyết định này.
+
 ## 8. Quy tắc thời gian
 
 Không áp dụng. Mỗi sample là một ảnh tĩnh, không phải video track.
 
 ## 9. Ví dụ
 
-Chỉ dùng sample ID trong split `example` hoặc `calibration` của `sample_pack.csv`. Bốn ID dưới đây đang được xếp vào split `example` trong sample pack hiện tại.
+Chỉ dùng sample ID trong split `example` hoặc `calibration` của `sample_pack.csv`. `GTS01` hiện là ảnh `calibration`; ba ID còn lại thuộc split `example`.
 
 | sample_id | Quan sát | Expected output | Rule áp dụng |
 |---|---|---|---|
@@ -92,13 +100,14 @@ Chỉ dùng sample ID trong split `example` hoặc `calibration` của `sample_p
 - Đoán hướng phục vụ khi không đủ căn cứ; giữ `facing=relevant` mặc định và yêu cầu review.
 - Gán `traffic_sign` cho object chưa xác định được có phải biển hay không.
 - Dùng `IGNORE` khi bằng chứng chưa đủ.
-- Quên tạo tag `image_status` cho ảnh không có biển trong phạm vi.
+- Quên tạo tag `image_status` cho bất kỳ ảnh nào, kể cả ảnh đã có nhiều box biển.
+- Gán đèn tín hiệu ở xa thành `traffic_sign` rồi đặt `facing=irrelevant` thay vì loại khỏi scope.
 - Vẽ box cho biển nhỏ hơn 8 px.
 - Tạo attribute `occluded` riêng dù CVAT đã có cờ che khuất.
 
 ## 11. Ảnh tình huống trong guideline nguồn
 
-Các ảnh dưới đây được đưa từ mục escalation của tài liệu Word v2. Giữ nguyên quyết định và ghi chú của nguồn; nhóm cần đối chiếu các trường hợp này với catalog và chốt các điểm chưa nhất quán trước khi freeze.
+Các ảnh dưới đây được đưa từ mục escalation của tài liệu Word v2. Giữ nguyên quyết định và ghi chú của nguồn để đối chiếu; một số sample ID hoặc mô tả chưa khớp catalog và ví dụ trong guideline. Chỉ dùng các ảnh đã xác minh vị trí object làm bằng chứng cho quyết định mới; không sửa frozen gold theo suy đoán.
 
 | Sample trong nguồn | Quyết định/ghi chú trong nguồn | Ảnh |
 |---|---|---|

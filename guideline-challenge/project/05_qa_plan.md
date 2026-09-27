@@ -1,6 +1,6 @@
 # QA plan + quality gates
 
-**Trạng thái:** Đề xuất v1. Nhóm cần chốt threshold trước khi dùng cho production hoặc freeze gold.
+Các threshold của v1 được dùng để đối chiếu batch blind do Nhomsiunhan trả về.
 
 ## Flow
 
@@ -34,7 +34,7 @@ Metric high-risk: **critical defect escape count**. Đếm defect critical mà r
 
 ## Quality gate
 
-Các threshold dưới đây là đề xuất cho nhóm, chưa phải kết quả đã đo.
+Ngưỡng QA đề xuất:
 
 ```text
 PASS if:
@@ -51,4 +51,21 @@ REJECT / ESCALATE if:
   gold thiếu object, guideline không phân xử case, hoặc CVAT export không giữ decision/attribute cần chấm
 ```
 
-**Trade-off:** Batch nhỏ cho phép review toàn bộ blind set và không nên bỏ qua lỗi critical. Threshold recall cao ưu tiên tránh bỏ sót biển. Threshold geometry 90% cho phép một số sai lệch sửa được; những box lệch quá 2 px vẫn phải rework. Nhóm cần xác nhận các threshold này trước calibration.
+Batch nhỏ cho phép review toàn bộ blind set. Ngưỡng recall 95% ưu tiên tránh bỏ sót biển; ngưỡng geometry 90% cho phép một số sai lệch trong batch, nhưng từng box lệch quá 2 px vẫn phải sửa.
+
+## Áp dụng cho batch blind đã nhận
+
+Nguồn là `07_blind_handoff/peer_output/annotations.xml` và mười dòng chấm trong `transfer_score.csv`. GTS = 87,5.
+
+| Chỉ số đã quan sát | Kết quả | So với gate |
+|---|---:|---|
+| Decision accuracy trên gold decision không phải geometry | 5/6 = 83,3% | Dưới ngưỡng đề xuất 90%. |
+| Geometry decision đúng theo review ảnh phóng | 3/4 = 75% | Box GTS14/d2 vượt dung sai 2 px theo quan sát ảnh phóng. |
+| Ảnh có đúng một `image_status` | 0/5 = 0% | Không đạt yêu cầu completeness 100%. |
+| Critical gold decision sai | 0/3 | Trong ba decision critical đã chấm. |
+
+**Kết luận QA cho batch này: REWORK.** Bổ sung `image_status` cho cả năm ảnh, xóa các box gán nhầm đèn tín hiệu ở GTS02 và chỉnh box GTS14 trước khi nhận lại export. Hai object GTS25 có `needs_review=true` cần owner phân xử.
+
+## Kiểm tra export CVAT của nhóm
+
+ZIP `job_9_annotations_2026_09_26_04_47_52_cvat for images 1.1.zip` có 28 ảnh và đủ 28 tag `image_status`, nhưng dùng schema cũ: còn `has_signs`, thiếu `needs_review`, `review_candidate` và `image_escalate`. Theo gate ở trên, export này cần **REJECT / ESCALATE về schema**. Cập nhật task rồi xuất lại.

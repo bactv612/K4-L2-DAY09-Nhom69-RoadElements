@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <job>
+      <id>24</id>
+      <size>5</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2026-09-27 07:02:13.250959+00:00</created>
+      <updated>2026-09-27 07:12:49.399739+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>4</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>24</id>
+          <start>0</start>
+          <stop>4</stop>
+          <url>https://cvat.itup.io.vn/api/jobs/24/dataset/export/api/jobs/24</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>nhomsieunhan</username>
+        <email>anh.nguyen.030609@gmail.com</email>
+      </owner>
+      <assignee></assignee>
+      <labels>
+        <label>
+          <name>traffic_sign</name>
+          <color>#1565C0</color>
+          <type>rectangle</type>
+          <attributes>
+            <attribute>
+              <name>visibility</name>
+              <mutable>False</mutable>
+              <input_type>select</input_type>
+              <default_value>visible</default_value>
+              <values>visible
+blurry</values>
+            </attribute>
+            <attribute>
+              <name>truncated</name>
+              <mutable>False</mutable>
+              <input_type>select</input_type>
+              <default_value>false</default_value>
+              <values>false
+true</values>
+            </attribute>
+            <attribute>
+              <name>facing</name>
+              <mutable>False</mutable>
+              <input_type>select</input_type>
+              <default_value>relevant</default_value>
+              <values>relevant
+irrelevant</values>
+            </attribute>
+            <attribute>
+              <name>needs_review</name>
+              <mutable>False</mutable>
+              <input_type>checkbox</input_type>
+              <default_value>false</default_value>
+              <values>false</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>review_candidate</name>
+          <color>#EF6C00</color>
+          <type>rectangle</type>
+          <attributes>
+            <attribute>
+              <name>decision</name>
+              <mutable>False</mutable>
+              <input_type>select</input_type>
+              <default_value>__undefined__</default_value>
+              <values>__undefined__
+IGNORE
+UNKNOWN
+ESCALATE</values>
+            </attribute>
+            <attribute>
+              <name>reason</name>
+              <mutable>False</mutable>
+              <input_type>select</input_type>
+              <default_value>__undefined__</default_value>
+              <values>__undefined__
+out_of_scope
+too_small
+not_sure_sign
+image_quality
+ego_route_unclear
+other</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>image_status</name>
+          <color>#2E7D32</color>
+          <type>tag</type>
+          <attributes>
+            <attribute>
+              <name>weather</name>
+              <mutable>False</mutable>
+              <input_type>select</input_type>
+              <default_value>sunny</default_value>
+              <values>sunny
+cloudy
+rainy
+snowy
+other</values>
+            </attribute>
+            <attribute>
+              <name>brightness</name>
+              <mutable>False</mutable>
+              <input_type>select</input_type>
+              <default_value>day</default_value>
+              <values>day
+night</values>
+            </attribute>
+          </attributes>
+        </label>
+        <label>
+          <name>image_escalate</name>
+          <color>#8E24AA</color>
+          <type>tag</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </job>
+    <dumped>2026-09-27 07:25:17.875382+00:00</dumped>
+  </meta>
+  <image id="0" name="GTS02.png" width="1360" height="800">
+    <box label="traffic_sign" source="manual" occluded="0" xtl="1144.14" ytl="118.00" xbr="1234.80" ybr="192.50" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="826.97" ytl="470.78" xbr="847.57" ybr="493.15" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="1160.14" ytl="198.12" xbr="1226.31" ybr="260.59" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="61.62" ytl="108.40" xbr="137.28" ybr="181.94" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="54.75" ytl="8.55" xbr="163.54" ybr="102.75" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="365.80" ytl="357.41" xbr="396.30" ybr="381.25" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">irrelevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="367.71" ytl="384.25" xbr="388.44" ybr="405.57" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">irrelevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="805.20" ytl="374.40" xbr="832.35" ybr="397.40" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">irrelevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="808.63" ytl="399.93" xbr="829.49" ybr="418.61" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">irrelevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+  </image>
+  <image id="1" name="GTS08.png" width="1360" height="800">
+    <box label="traffic_sign" source="manual" occluded="0" xtl="1030.67" ytl="501.98" xbr="1068.89" ybr="539.79" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="1027.38" ytl="545.14" xbr="1070.54" ybr="583.36" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="639.94" ytl="568.50" xbr="662.07" ybr="581.52" z_order="0">
+      <attribute name="visibility">blurry</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="231.49" ytl="489.35" xbr="273.76" ybr="530.21" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="234.69" ytl="534.10" xbr="276.20" ybr="571.10" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="767.16" ytl="550.22" xbr="823.08" ybr="594.62" z_order="0">
+      <attribute name="visibility">blurry</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+  </image>
+  <image id="2" name="GTS14.png" width="1360" height="800">
+    <box label="traffic_sign" source="manual" occluded="0" xtl="758.76" ytl="372.19" xbr="796.83" ybr="405.35" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="377.32" ytl="431.72" xbr="399.12" ybr="454.44" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">irrelevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+  </image>
+  <image id="3" name="GTS18.png" width="1360" height="800">
+    <box label="traffic_sign" source="manual" occluded="0" xtl="710.12" ytl="266.35" xbr="782.46" ybr="343.20" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="721.18" ytl="339.50" xbr="771.06" ybr="399.20" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+  </image>
+  <image id="4" name="GTS25.png" width="1360" height="800">
+    <box label="traffic_sign" source="manual" occluded="0" xtl="780.53" ytl="425.17" xbr="816.08" ybr="460.26" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="785.58" ytl="460.03" xbr="812.00" ybr="487.10" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">false</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="641.30" ytl="462.77" xbr="689.46" ybr="485.34" z_order="0">
+      <attribute name="visibility">blurry</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">relevant</attribute>
+      <attribute name="needs_review">true</attribute>
+    </box>
+    <box label="traffic_sign" source="manual" occluded="0" xtl="565.70" ytl="479.23" xbr="580.61" ybr="487.96" z_order="0">
+      <attribute name="visibility">visible</attribute>
+      <attribute name="truncated">false</attribute>
+      <attribute name="facing">irrelevant</attribute>
+      <attribute name="needs_review">true</attribute>
+    </box>
+  </image>
+</annotations>

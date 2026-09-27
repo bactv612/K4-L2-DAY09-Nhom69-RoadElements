@@ -28,4 +28,4 @@ Các giá trị này phải được xuất trong CVAT. Label rà soát không t
 
 ## Dữ liệu và giới hạn
 
-Sample pack hiện tại chọn ảnh GTSDB. GTSDB chứa biển của Đức; nhóm không suy luận ý nghĩa pháp lý hoặc loại biển từ nội dung chữ. Repo còn có ảnh BDD100K, nhưng nhóm chưa chọn ảnh đó vào sample pack. Bộ ảnh trong repo nhỏ và không đại diện đầy đủ cho điều kiện đường tại Việt Nam. Nhóm sẽ ghi số ảnh và sample ID cuối cùng trong `sample_pack.csv` sau khi chốt các split.
+Sample pack có 9 ảnh GTSDB: 3 ảnh `example` (`GTS04`, `GTS07`, `GTS12`), 1 ảnh `calibration` (`GTS01`) và 5 ảnh `blind` (`GTS02`, `GTS08`, `GTS14`, `GTS18`, `GTS25`). README khuyến nghị 5–8 ảnh calibration. GTSDB chứa biển của Đức nên nhóm không suy luận ý nghĩa pháp lý từ nội dung chữ. Bộ ảnh này chưa đại diện đầy đủ cho điều kiện đường tại Việt Nam.

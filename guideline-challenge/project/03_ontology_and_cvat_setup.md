@@ -27,10 +27,12 @@ Theo guideline, CVAT mặc định `visibility=visible`, `truncated=false`, `fac
 ## CVAT
 
 - **Phiên bản CVAT:** `v2.74.1`
-- **Tên task và ID calibration:** Đã tạo task calibration;
+- **Task calibration:** Đã tạo.
 - **Đã dán Guide vào task:** Đã dán toàn bộ `02_guideline.md` vào Guide của task.
 - **Shape hay Track:** Đã chọn Shape vì task dùng ảnh tĩnh, không có nhãn theo thời gian.
 
 ## Kiểm tra thiết lập
 
-Chưa thực hiện. Sau khi tạo task calibration, nhờ một thành viên không tham gia thiết lập tự mở task và xác định bốn label, geometry cho `traffic_sign` và `review_candidate`, các attribute bắt buộc, cùng điều kiện dùng `image_escalate`. Ghi tên người thử và điểm họ còn phân vân tại đây.
+Export chấm chéo của Nhomsiunhan (CVAT job 24) chứa đủ bốn label trong ontology và các attribute của `traffic_sign`; điều này xác nhận schema đã vào task của peer. Cả năm ảnh peer xuất đều thiếu tag `image_status`, dù label này có trong schema. Cần kiểm tra tag trên từng ảnh trước khi nhận batch.
+
+Export của nhóm ở gốc repo (`job_9_annotations_2026_09_26_04_47_52_cvat for images 1.1.zip`) là CVAT job 9, gồm 28 ảnh, 72 box `traffic_sign` và đúng một tag `image_status` trên mỗi ảnh. Schema trong ZIP chỉ có hai label `traffic_sign`, `image_status`. Nó còn `has_signs` đã xóa ở guideline v2, nhưng thiếu `needs_review`, `review_candidate` và `image_escalate` của `03_cvat_labels.json`. Cần cập nhật labels và Guide của task rồi xuất lại.

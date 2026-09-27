@@ -1,8 +1,7 @@
-CVAT task reference — thay mọi placeholder mới là xong.
+CVAT task reference
 
-CVAT version: TODO
-Task calibration (tên, id): TODO
-Task bản cuối theo guideline v3 (tên, id) hoặc lý do không có: TODO
-File export đã nộp (đường dẫn trong repo): TODO
-Guideline version dán trong Guide của task: TODO
-Ghi chú cho người tiếp nhận: TODO
+CVAT version trong checkout D:\VinUni\cvat\cvat-day2: v2.74.1 (docker-compose.yml).
+Export CVAT (đường dẫn từ gốc repo): job_9_annotations_2026_09_26_04_47_52_cvat for images 1.1.zip
+Thông tin đọc từ export: CVAT job ID 9; 28 ảnh GTS01.png–GTS28.png, 72 box traffic_sign và 28 tag image_status. ZIP chứa annotations.xml. Job cập nhật lần cuối 2026-09-26 04:47:52 UTC; XML dump lúc 2026-09-27 08:38:44 UTC.
+Schema trong ZIP còn has_signs; thiếu review_candidate, image_escalate và needs_review của 03_cvat_labels.json. Cập nhật task và xuất lại theo guideline v3.
+Peer export: project/07_blind_handoff/peer_output/annotations.xml (Nhomsiunhan, CVAT job 24, 5 ảnh blind). Blind-pack đã gửi dùng guideline v2. Kết quả GTS 87,5 trong gts_summary.md; lỗi cần sửa nằm ở peer_feedback.md và 05_qa_plan.md.
